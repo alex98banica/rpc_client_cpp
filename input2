@@ -1,0 +1,19 @@
+login ion
+logout
+login jan
+logout
+login denis
+add 12 2 2.0 4.5
+add 54 3 7.0 5.6 221.3
+read 54
+get_stat_all
+del 54
+del 12
+read 12
+read 54
+add 11 3 223.23 24.23 2.2
+add 9 4 1.2 2.2 5.6 77.1
+add 11 4 4.23 34.34 4.2 12.4
+get_stat_all
+add 11 2 29 12.3
+logout

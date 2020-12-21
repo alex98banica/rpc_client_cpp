@@ -1,0 +1,46 @@
+BANICA ALEXANDRU IONUT
+342C3
+
+Usage: make
+		./fileserver
+		./fileclient input(1/2/3)
+
+
+< structuri folosite >
+Pentru baza de date globala si bazele de date pentru fiecare utilizator am pornit de la strcutura pentru un element sensor_data,
+am facut o structura cu un vector de sensor_data si cheia utilizatorului - aceasta fiind o baza de date pentru un utilizator,
+iar pentru baza de date globala am facut un vector din aceasta structura.
+Structurile login si message sunt pentru returnat mesaje.
+key_id - pentru pasarea untei structuri cu cheie user si id element
+gstat - pentru memorarea elementelor unui get_stat / get_stat_all
+
+< client >
+In client am parsat inputul si am vazut comenzile date si in functie de acestea am apelat functiile corespunzatoare si am afisat
+mesajul aferent.
+
+
+< server >
+<< login / logout >>
+Am create 3 fisiere de input (input1/2/3) care se dau ca argument la ./fileclient
+Am evidentiat prin comentarii atat in client cat si in server unde sunt apelate/create functiile.
+Pentru adaugare usera am generat o cheie aleatorie si am verificat daca deja exista sau nu daca exista am generat alta.
+Tin minte ultilizatorii printr-un vector de perechi(char * ,int) si returnez mesajul daca deja exista userul sau a fost creat,
+in functia de stergere user sterg intrarea de la acel user.
+
+<< adaugare / stergere /update elemnt >>
+Pentru adaugarea unui elemnt am verificat mai intai daca exista acel elemnt si daca exista intorc mesajul aferent,
+daca nu adaug pentru utilizatorul respectiv o structura cu acel elemnt baza de date(verific mai intai daca baza de date pentru
+acel utilizatormai are vreun elemnt sau o creez)
+Pentru stergere caut elementul in baza de date si sterg intrarea aferenta, daca nu exista trimit un mesaj cu nu exista elemntul cautat.
+Pentru update e reinnoiesc elementul gasit si daca nu exista il adaug.
+
+<< read >>
+Caut elemntul in functie de cheie utilizator si id element si il trimit inapoi printr-un mesaj, daca nu exista afiseez elementul nu
+a putut fi gasit.
+
+<< get_stat / get_stat_all >>
+Pentru get_stat caut elementul in functie de cheie si id, iterez prin elemnte si pun intr-o structura gstat min,max,media
+si mediana sau medianele in functie de numarul de elemente daca e impar o singura mediana daca e par doua mediane.
+Pentru get_stat_all parcurg toate tabelele si pun toate lementele intr-un vector pe care il sortez crescator pt a afla
+mediana(medianele) iar min/max/medie le calculez in timp ce parcurg tabelele ,returnez infromatiile printr-o structura
+de tipul gstat.
